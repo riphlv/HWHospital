@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 
@@ -12,6 +14,7 @@ import lv.venta.demo.enums.Gender;
 
 @Entity
 @Table(name="Users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 	@Column(name="User_ID")
 	@Id
@@ -31,7 +34,8 @@ public class User {
 	
 	@Column(name="Gender")
 	private Gender gender;
-	
+	//Personas kods
+	//Personal Code Number
 	@Column(name="PersonalCN")
 	String personalCN;
 	public User(String password, String name, String surname, Gender gender, String personalCN ) {

@@ -8,6 +8,6 @@ import lv.venta.demo.models.Appointment;
 
 public interface _AppointmentRepo extends CrudRepository<Appointment, Integer> {
 
-	ArrayList<Appointment> findAllById(int patient_id); 
+	//ArrayList<Appointment> findAllById(int patient_id); 
 
 }

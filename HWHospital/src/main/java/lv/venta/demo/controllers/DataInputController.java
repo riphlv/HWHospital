@@ -22,9 +22,11 @@ public class DataInputController {
 	//Services implementation
 	@Autowired 
 	DataInputImpl dataInputImpl;
+	
+	/*
 	@Autowired
 	DataFilterImpl dataFilterImpl;
-	
+	*/
 	//Administrator controller
 	@GetMapping(value="/admin/inputdata")
 	public String inputData() {
@@ -55,6 +57,10 @@ public class DataInputController {
 		dataInputImpl.insertPatient(patient);
 		return "redirect:/";
 	}
+	/* TODO CHECK ERROR
+	 * Field dataFilterImpl in lv.venta.demo.controllers.DataInputController
+	 * required a bean of type 'lv.venta.demo.services.impl.DataFilterImpl'
+	 * that could not be found.
 	@GetMapping(value="/admin/deletePatientById/{id}")
 	public String deletePatientById(@PathVariable(name="id") int id, Model model) {
 		if(dataInputImpl.deletePatientById(id)) {
@@ -63,7 +69,7 @@ public class DataInputController {
 		}else {
 			return "redirect:/";
 		}
-	}
+	}*/
 	@GetMapping(value="/doctor/register")
 	public String insertNewDoctor(Doctor doctor) {
 		return "register-doctor";
