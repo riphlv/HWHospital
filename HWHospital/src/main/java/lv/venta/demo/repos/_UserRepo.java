@@ -6,5 +6,7 @@ import lv.venta.demo.models.User;
 
 public interface _UserRepo extends CrudRepository<User, Integer> {
 
+	boolean existsUserByPersonalCNAndPassword(String personalCN, String password);
+
 }
  

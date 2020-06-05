@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User auth</title>
+</head>
+<body>
+<form action="#" th:action="@{/user/authorise}" th:object="${user}" method ="post">
+<input placeholder="Personal code" type="text" th:field="*{personalCN}"><br>
+<input placeholder="Password" type="password" th:field="*{password}"><br>
+<input type="submit" ><br>
+</form>
+
+
+</body>
+</html>

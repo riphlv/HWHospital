@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Register patient</title>
+</head>
+
+<body>
+<form action="#" th:action="@{/admin/updatePatientById}" th:object="${patient}" method ="post">
+<input placeholder="Name" type="text" th:field="*{name}" th:value="${name}"><br>
+<input placeholder="Surname" type="text" th:field="*{surname}" th:value="${surname}"><br>
+<select  th:field="*{gender}" th:value="${gender}">
+    <option th:each="gender : ${T(lv.venta.demo.enums.Gender).values()}"
+            th:value="${gender}"
+            th:text="${gender}">
+    </option>
+</select>
+<br>
+<input placeholder="Personal code" type="text" th:field="*{personalCN}" th:value="${personalCN}" readonly><br>
+<input placeholder="Password" type="password" th:field="*{password}" th:value="${password}"><br>
+<input type="submit" ><br>
+</form>
+</body>
+</html>

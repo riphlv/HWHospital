@@ -3,6 +3,7 @@ package lv.venta.demo.services.impl;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.demo.enums.Speciality;
 import lv.venta.demo.models.Appointment;
@@ -13,6 +14,7 @@ import lv.venta.demo.repos._DoctorRepo;
 import lv.venta.demo.repos._PatientRepo;
 import lv.venta.demo.services._DataFilter;
 
+@Service
 public class DataFilterImpl implements _DataFilter {
 	@Autowired
 	_DoctorRepo doctorRepo;
@@ -43,7 +45,7 @@ public class DataFilterImpl implements _DataFilter {
 	@Override
 	public ArrayList<Patient> selectAllPatientsByNameAndSurname(String name, String surname) throws Exception {
 		if(patientRepo.existsByNameAndSurname(name, surname)) {
-			return patientRepo.findAllByNameAndSurname(name, surname);
+			return patientRepo.findByNameAndSurname(name, surname);
 		}else {
 			throw new Exception("No patients by given name and surname found!");
 		}

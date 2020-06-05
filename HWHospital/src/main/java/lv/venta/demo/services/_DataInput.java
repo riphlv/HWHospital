@@ -8,7 +8,7 @@ public interface _DataInput {
 	void inputData();
 	boolean insertPatient(Patient patient);
 	boolean insertDoctor(Doctor doctor);
-	boolean updatePatientById(int id, Patient patient);
+	Patient updatePatientById(int id);
 	boolean deletePatientById(int id);
 	boolean insertNewAppointment(Appointment appointment);
 } 

@@ -7,32 +7,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lv.venta.demo.models.Doctor;
 import lv.venta.demo.models.Patient;
-import lv.venta.demo.services.impl.DataFilterImpl;
 import lv.venta.demo.services.impl.DataInputImpl;
 
-@Controller
+//@Controller
 @RequestMapping("/input")
 public class DataInputController {
 	//Services implementation
 	@Autowired 
 	DataInputImpl dataInputImpl;
 	
-	/*
-	@Autowired
-	DataFilterImpl dataFilterImpl;
-	*/
-	//Administrator controller
-	@GetMapping(value="/admin/inputdata")
+	////////////////////////////////////////
+	@GetMapping("/inputdata")
 	public String inputData() {
 		dataInputImpl.inputData();
-		return "input";
+		return "ok";
 	}
+	////////////////////////////////////////
 	//Patient controller
 	@GetMapping(value="/patient/register")
 	public String insertNewPatient(Patient patient) {
@@ -46,6 +41,7 @@ public class DataInputController {
 		}
 		return "register-patient";
 	}
+	/*
 	@GetMapping(value="/admin/updatePatientById")
 	public String updatePatientById(Model model, Patient patient) {
 		dataInputImpl.updatePatientById(patient.getUser_id(), patient);
@@ -57,6 +53,7 @@ public class DataInputController {
 		dataInputImpl.insertPatient(patient);
 		return "redirect:/";
 	}
+	*/
 	/* TODO CHECK ERROR
 	 * Field dataFilterImpl in lv.venta.demo.controllers.DataInputController
 	 * required a bean of type 'lv.venta.demo.services.impl.DataFilterImpl'
@@ -70,6 +67,7 @@ public class DataInputController {
 			return "redirect:/";
 		}
 	}*/
+	/*
 	@GetMapping(value="/doctor/register")
 	public String insertNewDoctor(Doctor doctor) {
 		return "register-doctor";
@@ -82,6 +80,7 @@ public class DataInputController {
 		}
 		return "register-doctor";
 	}
+	*/
 //	@GetMapping(value="/user/authorise")
 //	public String authoriseUser(User user) {
 //		

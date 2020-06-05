@@ -2,13 +2,14 @@ package lv.venta.demo.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import javax.validation.constraints.Pattern;
 
 import lv.venta.demo.enums.Gender;
 
@@ -24,26 +25,34 @@ public class User {
 	@Column(name="Password")
 	private String password;
 	 
-	@Pattern(regexp="[a-zA-Z\\s]+$")
+	//@Pattern(regexp="[a-zA-Z\\s]+$")
 	@Column(name="Name")
 	private String name;
 	
-	@Pattern(regexp="[a-zA-Z\\s]+$")
+	//@Pattern(regexp="[a-zA-Z\\s]+$")
 	@Column(name="Surname")
 	private String surname;
 	
 	@Column(name="Gender")
+	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	//Personas kods
 	//Personal Code Number
 	@Column(name="PersonalCN")
-	String personalCN;
+	private String personalCN;
 	public User(String password, String name, String surname, Gender gender, String personalCN ) {
 		this.password = password;
 		this.name = name;
 		this.surname = surname;
 		this.gender = gender;
 		this.personalCN = personalCN;
+	}
+	public User() {
+		this.password = null;
+		this.name = null;
+		this.surname = null;
+		this.gender = null;
+		this.personalCN = null;
 	}
 
 	public String getPersonalCN() {
